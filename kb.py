@@ -6,3 +6,8 @@ def admin_panel_kb() -> InlineKeyboardMarkup:
     kb.add(InlineKeyboardButton(text="Статистика", callback_data="stats"))
     return kb
 
+def get_confirm_inline_kb() -> InlineKeyboardMarkup:
+    kb = InlineKeyboardMarkup(row_width=2)
+    kb.add(InlineKeyboardButton("Да", callback_data="confirm_yes"))
+    kb.add(InlineKeyboardButton("Нет", callback_data="confirm_no"))
+    return kb
