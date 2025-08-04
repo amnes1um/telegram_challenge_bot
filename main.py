@@ -1,13 +1,15 @@
 import asyncio
 from aiogram import Bot, Dispatcher, types
-from dotenv import load_dotenv
-import os
+from config import api_token
+from handlers import register_handlers
+import logging
 
-load_dotenv()
-api_token = os.getenv("tg_api_token")
-
-bot = Bot(token=api_token)
-dp = Dispatcher(bot)
+logging.basicConfig(level=logging.INFO)
+async def main():
+    bot = Bot(token=api_token)
+    dp = Dispatcher()
+    register_handlers(dp)
+    await dp.start_polling(bot)
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
+    asyncio.run(main())
