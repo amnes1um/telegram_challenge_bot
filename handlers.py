@@ -11,6 +11,9 @@ async def admin(message: types.Message):
         await message.answer("Админ-панель", reply_markup=keyboard)
     else:
         pass
+@router.message(Command("start"))
+async def start(message: types.Message):
+    await message.answer(".")
 
 def register_handlers(dp):
     dp.include_router(router)
