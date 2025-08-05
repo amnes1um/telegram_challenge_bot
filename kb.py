@@ -4,6 +4,7 @@ def admin_panel_kb() -> InlineKeyboardMarkup:
     kd = InlineKeyboardMarkup()
     kb.add(InlineKeyboardButton(text="Рассылка", callback_data="mailing"))
     kb.add(InlineKeyboardButton(text="Статистика", callback_data="stats"))
+    kb.add(InlineKeyboardButton(text="Выход", callback_data="exit"))
     return kb
 
 def get_confirm_inline_kb() -> InlineKeyboardMarkup:
